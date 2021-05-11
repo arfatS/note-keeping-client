@@ -68,7 +68,7 @@ class EditNote extends React.Component {
 
 
     render(){
-        const { form } = this.state
+        const { form, message } = this.state
 
         return(
             <div className="container-fluid">
@@ -81,6 +81,7 @@ class EditNote extends React.Component {
 
                             <div className="col-md-8">
                                 <h2>Edit Note</h2>
+                                <p className="text-danger">{message}</p>
 
                                 <div className="mt-3">
                                     <div className="form-group">

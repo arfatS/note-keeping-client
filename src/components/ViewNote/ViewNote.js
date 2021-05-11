@@ -34,7 +34,6 @@ class ViewNote extends React.Component {
     render() {
 
         const { note, sharedUsers } = this.props
-
         return (
             <div className="container-fluid">
 
@@ -60,7 +59,12 @@ class ViewNote extends React.Component {
                                                     <h6>
                                                         {user.name} - <span className="text-secondary">{user.role}</span> 
 
-                                                        <button className="btn btn-sm btn-danger mx-3" onClick={() => { this.onDelete(user.id) }}>Remove</button>
+                                                        { localStorage.getItem('loggedIn') == note.ownerId ?
+
+                                                            <button className="btn btn-sm btn-danger mx-3" onClick={() => { this.onDelete(user.id) }}>Remove</button>
+                                                            :
+                                                            null
+                                                        }
                                                     </h6>
 
                                                 </div>

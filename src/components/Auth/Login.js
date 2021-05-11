@@ -44,6 +44,21 @@ class Login extends React.Component {
             return
         }
 
+        let checkEmail = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(form.email)
+        if (!checkEmail) {
+            this.setState({
+                message: 'Please enter a valid email address'
+            })
+            return
+        }
+
+        if (form.password.length < 8) {
+            this.setState({
+                message: 'Password must be atleast 8 characters long'
+            })
+            return
+        }
+
         loginUserApi(form)
         .then(res => {
 
