@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { logoutApi } from '../../src/store/api'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBook, faUserTag, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+
 function BaseLayout(props) {
     
     const styles = {
@@ -40,10 +43,10 @@ function BaseLayout(props) {
                             localStorage.getItem('loggedIn') && localStorage.getItem('loggedIn') !== undefined ?
                             <>
                                 <li className="nav-item" >
-                                    <Link className="nav-link" to={"/"} style={{color: "black"}}>My Notes</Link>
+                                    <Link className="nav-link" to={"/"} style={{color: "black"}}><FontAwesomeIcon icon={faBook} /> My Notes </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to={"/shared"} style={{color: "black"}}>Shared with me</Link>
+                                    <Link className="nav-link" to={"/shared"} style={{color: "black"}}> <FontAwesomeIcon icon={faUserTag} /> Shared with me </Link>
                                 </li>
                             </> :
 
@@ -58,9 +61,7 @@ function BaseLayout(props) {
                 {
                     localStorage.getItem('loggedIn') && localStorage.getItem('loggedIn') !== undefined ?
                     
-                    // <Link to={'/login'} className="btn btn-sm btn-secondary text-white float-right" style={{color: "black"}}>Logout</Link>
-                    
-                    <button onClick={logout} className="btn btn-sm btn-secondary text-white float-right" style={{color: "black"}}>Logout</button>
+                    <button onClick={logout} className="btn btn-sm btn-secondary text-white float-right" style={{color: "black"}}>Logout <FontAwesomeIcon icon={faSignOutAlt} /></button>
                     
                     : null
                    

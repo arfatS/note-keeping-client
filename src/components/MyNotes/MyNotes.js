@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faEdit, faTrash, faShareSquare } from '@fortawesome/free-solid-svg-icons'
+
 import { 
     deleteNoteApi,
     createNotePermissionApi
@@ -96,7 +99,7 @@ class MyNotes extends React.Component {
                             </div>
 
                             <div className="col-md-8">
-                                <Link to={"/add"} className="btn btn-dark  mt-2" style={{ float: "right" }} >Add Note</Link>
+                                <Link to={"/add"} className="btn btn-dark  mt-2" style={{ float: "right" }} >Add Note <FontAwesomeIcon icon={faPlus} /></Link>
                             </div>
                         </div>
                     </div>
@@ -107,9 +110,9 @@ class MyNotes extends React.Component {
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" width="10%">#</th>
+                                        <th scope="col" width="65%">Title</th>
+                                        <th scope="col" width="25%">Action</th>
 
                                     </tr>
                                 </thead>
@@ -127,11 +130,11 @@ class MyNotes extends React.Component {
                                                             <Link to={`/view/${note.id}`} style={{textDecoration: "none"}}>{note.title}</Link>
                                                         </td>
                                                         <td>
-                                                            <Link to={`/edit/${note.id}`} className="btn btn-sm btn-secondary">Edit</Link>
+                                                            <Link to={`/edit/${note.id}`} className="btn btn-sm btn-secondary"><FontAwesomeIcon icon={faEdit} /></Link>
 
-                                                            <button className="btn btn-sm btn-danger mx-2" onClick={() => { this.onDelete(note.id) }}>Delete</button>
+                                                            <button className="btn btn-sm btn-danger mx-2" onClick={() => { this.onDelete(note.id) }}><FontAwesomeIcon icon={faTrash} /></button>
 
-                                                            <button className="btn btn-sm btn-primary mx-2" onClick={() => { this.handleShow(note.id) }}>Share</button>
+                                                            <button className="btn btn-sm btn-primary mx-2" onClick={() => { this.handleShow(note.id) }}>Share <FontAwesomeIcon icon={faShareSquare} /></button>
 
                                                         </td>
 
@@ -210,10 +213,10 @@ class MyNotes extends React.Component {
                         <Modal.Footer>
                             <Button variant="secondary" onClick={this.handleClose}>
                                 Cancel
-                        </Button>
+                            </Button>
                             <Button variant="primary" onClick={() => { this.onShare() }}>
-                                Share
-                        </Button>
+                                Share <FontAwesomeIcon icon={faShareSquare} />
+                            </Button>
                         </Modal.Footer>
                     </Modal>
                 </>

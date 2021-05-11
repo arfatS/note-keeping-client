@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faEdit, faTrash, faShareSquare } from '@fortawesome/free-solid-svg-icons'
 
 class SharedNotes extends React.Component {
 
@@ -24,7 +26,7 @@ class SharedNotes extends React.Component {
                             </div>
 
                             <div className="col-md-8">
-                                <Link to={"/add"} className="btn btn-dark  mt-2" style={{float: "right"}} >Add Note</Link>
+                                <Link to={"/add"} className="btn btn-dark  mt-2" style={{float: "right"}} >Add Note <FontAwesomeIcon icon={faPlus}/></Link>
                             </div>
                         </div>
                     </div>
@@ -35,9 +37,9 @@ class SharedNotes extends React.Component {
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Title</th>
-                                        <th>Action</th>
+                                        <th scope="col" width="10%">#</th>
+                                        <th scope="col" width="65%">Title</th>
+                                        <th scope="col" width="25%">Action</th>
 
                                     </tr>
                                 </thead>
@@ -56,7 +58,7 @@ class SharedNotes extends React.Component {
                                                         {
                                                             note.role == 'Contributor' ?
                                                             <td>
-                                                                <Link to={`/edit/${note.id}`} className="btn btn-sm btn-secondary">Edit</Link>
+                                                                <Link to={`/edit/${note.id}`} className="btn btn-sm btn-secondary"><FontAwesomeIcon icon={faEdit} /></Link>
 
                                                             </td>
                                                             : 
